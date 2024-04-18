@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1101.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminController">
+   <children>
+      <TabPane fx:id="AdminPanel" layoutX="14.0" layoutY="74.0" prefHeight="775.0" prefWidth="1067.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="membersInfo" text="Members Info">
+            <content>
+              <AnchorPane fx:id="refreshBttn" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="memberTable" layoutX="14.0" layoutY="22.0" prefHeight="657.0" prefWidth="767.0">
+                          <columns>
+                            <TableColumn id="memberID" fx:id="memberIDColumn" prefWidth="57.0" text="ID" />
+                            <TableColumn id="memberUserName" fx:id="memberNameColumn" minWidth="0.0" prefWidth="114.0" text="Name" />
+                              <TableColumn id="memberPassword" fx:id="memberUserNameColumn" prefWidth="121.0" text="User Name" />
+                              <TableColumn id="memberBookInPos" fx:id="memberPasswordColumn" prefWidth="136.0" text="Password" />
+                              <TableColumn id="MemberBookReturnDate" fx:id="memberBookInPossessionColumn" prefWidth="140.0" text="BookInPossession" />
+                              <TableColumn id="MemberMoneyOwed" fx:id="memberReturnBookDateColumn" prefWidth="113.0" text="Return Date" />
+                              <TableColumn fx:id="memberMoneyOwedColumn" prefWidth="85.0" text="Money Owed" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="793.0" layoutY="22.0" prefHeight="30.0" prefWidth="252.0" text="ADD A NEW LIBRARY MEMBER" />
+                        <TextField fx:id="addNewUserName" layoutX="793.0" layoutY="126.0" prefHeight="27.0" prefWidth="245.0" promptText="Username" />
+                        <TextField fx:id="addNewMemberPassword" layoutX="792.0" layoutY="171.0" prefHeight="22.0" prefWidth="246.0" promptText="Password" />
+                        <Button fx:id="addNewmemberBttn" layoutX="867.0" layoutY="204.0" mnemonicParsing="false" onAction="#addMember" prefHeight="32.0" prefWidth="106.0" text="ADD MEMBER" />
+                        <Label layoutX="797.0" layoutY="108.0" text="UserName" />
+                        <Label layoutX="800.0" layoutY="153.0" text="Password" />
+                        <Button fx:id="deleteUserBttn" layoutX="866.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="33.0" prefWidth="106.0" text="DELETE USER" />
+                        <TextField fx:id="deleteMemberTextField" layoutX="804.0" layoutY="292.0" prefHeight="26.0" prefWidth="234.0" promptText="ID" />
+                        <Label layoutX="797.0" layoutY="255.0" prefHeight="18.0" prefWidth="236.0" text="DELETE A LIBRARY MEMBER" />
+                        <Label layoutX="803.0" layoutY="388.0" text="Search Library Member" />
+                        <TextField fx:id="searchID" layoutX="803.0" layoutY="416.0" prefHeight="26.0" prefWidth="250.0" promptText="search by ID" />
+                        <TextField fx:id="searchName" layoutX="803.0" layoutY="452.0" prefHeight="26.0" prefWidth="248.0" promptText="search by Name" />
+                        <TextField fx:id="searchBookName" layoutX="803.0" layoutY="487.0" prefHeight="26.0" prefWidth="248.0" promptText="search by Book Name" />
+                        <TextField fx:id="searchISBN" layoutX="803.0" layoutY="524.0" prefHeight="26.0" prefWidth="244.0" promptText="search by ISBN" />
+                        <Button fx:id="searchBttn" layoutX="894.0" layoutY="565.0" mnemonicParsing="false" onAction="#searchMember" text="SEARCH" />
+                        <Button fx:id="sortMemberByMoneyOwedBttn" layoutX="14.0" layoutY="692.0" mnemonicParsing="false" onAction="#sortMemberByMoneyOwed" text="Sort By Money Owed" />
+                        <Button fx:id="sortMemberByNameBttn" layoutX="180.0" layoutY="692.0" mnemonicParsing="false" onAction="#sortMemberByName" prefHeight="26.0" prefWidth="118.0" text="Sort by Name" />
+                        <Button fx:id="sortMemberByDateBttn" layoutX="315.0" layoutY="692.0" mnemonicParsing="false" text="Sort by Date of Return" />
+                        <TextField fx:id="addNewMemberName" layoutX="794.0" layoutY="82.0" prefHeight="26.0" prefWidth="245.0" promptText="Name" />
+                        <Text layoutX="797.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="92.13000106811523" />
+                        <Button fx:id="refreshMemberBttn" layoutX="897.0" layoutY="692.0" mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="booksInfo" text="Book Info">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="bookTableView" layoutX="14.0" layoutY="14.0" prefHeight="612.0" prefWidth="725.0">
+                           <columns>
+                              <TableColumn id="isbnColumn" fx:id="isbnCol" prefWidth="75.0" text="ISBN" />
+                              <TableColumn id="BookNameColumn" fx:id="bookNameCol" prefWidth="169.0" text="Book Name" />
+                              <TableColumn id="AuthorNameColumn" fx:id="authorCol" minWidth="0.0" prefWidth="133.0" text="Author" />
+                              <TableColumn id="BookAvailbilityColumn" fx:id="availabilityCol" prefWidth="87.3016357421875" text="Availability" />
+                              <TableColumn id="BookConditionColumn" fx:id="conditionCol" prefWidth="131.0" text="Condition" />
+                              <TableColumn id="BookAisleRowColumn" fx:id="aisleRowCol" prefWidth="128.0" text="Aisle:Row" />
+                           </columns>
+                        </TableView>
+                        <Text layoutX="752.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD A NEW BOOK" wrappingWidth="173.13000106811523" />
+                        <TextField fx:id="isbnNewBook" layoutX="752.0" layoutY="54.0" prefHeight="26.0" prefWidth="304.0" promptText="ISBN NUMBER" />
+                        <TextField fx:id="bookNameNewBook" layoutX="752.0" layoutY="88.0" prefHeight="26.0" prefWidth="305.0" promptText="BOOK NAME" />
+                        <TextField fx:id="authorNameNewBook" layoutX="752.0" layoutY="120.0" prefHeight="26.0" prefWidth="303.0" promptText="AUTHOR NAME" />
+                        <TextField fx:id="aisleRowNewBook" layoutX="752.0" layoutY="153.0" prefHeight="26.0" prefWidth="303.0" promptText="Aisle:Row" />
+                        <Button fx:id="addNewBookBttn" layoutX="862.0" layoutY="194.0" mnemonicParsing="false" onAction="#addNewBook" text="ADD BOOK" />
+                        <Text layoutX="752.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DELETE A BOOK" />
+                        <TextField fx:id="isbnDeleteBook" layoutX="752.0" layoutY="263.0" prefHeight="26.0" prefWidth="303.0" promptText="ISBN NUMBER" />
+                        <TextField fx:id="bookNameDeleteBook" layoutX="751.0" layoutY="294.0" prefHeight="26.0" prefWidth="305.0" promptText="BOOK NAME" />
+                        <Button fx:id="removeBookBttn" layoutX="853.0" layoutY="330.0" mnemonicParsing="false" onAction="#removeBook" text="Remove Book" />
+                        <Button fx:id="refreshBookBttn" layoutX="895.0" layoutY="613.0" mnemonicParsing="false" onAction="#initialize" text="Refresh" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="AdminInfo" text="Admin Info">
+              <content>
+                <AnchorPane fx:id="AdminAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="adminTable" layoutX="14.0" layoutY="39.0" prefHeight="627.0" prefWidth="796.0">
+                          <columns>
+                            <TableColumn fx:id="adminIDColumn" prefWidth="147.0" text="ID" />
+                              <TableColumn fx:id="adminUserNameColumn" prefWidth="309.0" text="USERNAME" />
+                              <TableColumn fx:id="adminPasswordColumn" prefWidth="339.0" text="PASSWORD" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="837.0" layoutY="39.0" prefHeight="30.0" prefWidth="200.0" text="ADD NEW ADMIN" />
+                        <TextField fx:id="addNewAdminUserName" layoutX="837.0" layoutY="75.0" prefHeight="26.0" prefWidth="202.0" promptText="USERNAME" />
+                        <TextField fx:id="addNewAdminPassword" layoutX="837.0" layoutY="113.0" prefHeight="26.0" prefWidth="201.0" promptText="PASSWORD" />
+                        <Button fx:id="addNewAdminBttn" layoutX="875.0" layoutY="151.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="122.0" text="ADD ADMIN" />
+                        <Label layoutX="837.0" layoutY="299.0" prefHeight="29.0" prefWidth="198.0" text="DELETE ADMIN" />
+                        <TextField fx:id="removeAdminUserName" layoutX="837.0" layoutY="340.0" prefHeight="26.0" prefWidth="197.0" promptText="USERNAME" />
+                        <Button fx:id="removeAdminBttn" layoutX="875.0" layoutY="388.0" mnemonicParsing="false" text="REMOVE ADMIN" />
+                        <Button fx:id="refreshAdmin" layoutX="908.0" layoutY="584.0" mnemonicParsing="false" onAction="#initialize" text="Refresh" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="13.0" layoutY="7.0" prefHeight="57.0" prefWidth="858.0" text="ADMIN PANEL">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="logoutBttn" layoutX="974.0" layoutY="48.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+   </children>
+</AnchorPane>
